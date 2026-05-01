@@ -1,11 +1,25 @@
-// Bilingual blog posts about export-import, trade, and commodities
+// Bilingual blog posts — export-import, trade, commodities
+// Each post: slug, cover, date, readTime, views, category, tags[], author, title{en,id}, excerpt{en,id}, body{en,id}
+
+const editor = {
+  name: { en: "Dira Editorial Team", id: "Redaksi Dira" },
+  role: { en: "Trade Desk — Medan", id: "Meja Redaksi — Medan" },
+  bio: {
+    en: "Field operators and trade analysts behind every PT. Dira Baraka Mulia shipment. Writing from the port, not the boardroom.",
+    id: "Tim operasional dan analis perdagangan di balik setiap pengiriman PT. Dira Baraka Mulia. Menulis dari pelabuhan, bukan ruang rapat.",
+  },
+};
+
 export const blogPosts = [
   {
     slug: "panduan-undername-impor-2025",
     cover: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=1400&q=80",
     date: "2025-11-12",
     readTime: 7,
+    views: 2843,
     category: { en: "Undername", id: "Undername" },
+    tags: ["undername", "api-u", "import", "regulation", "beginner"],
+    author: editor,
     title: {
       en: "The Complete Guide to Undername Import Service in Indonesia (2025)",
       id: "Panduan Lengkap Layanan Undername Impor di Indonesia (2025)",
@@ -36,7 +50,10 @@ export const blogPosts = [
     cover: "https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=1400&q=80",
     date: "2025-10-28",
     readTime: 6,
+    views: 3921,
     category: { en: "Export", id: "Ekspor" },
+    tags: ["export", "coffee", "commodities", "markets", "specialty"],
+    author: editor,
     title: {
       en: "Indonesian Coffee Export: Five Markets That Are Booming Right Now",
       id: "Ekspor Kopi Indonesia: Lima Pasar yang Sedang Naik Daun",
@@ -71,7 +88,10 @@ export const blogPosts = [
     cover: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1400&q=80",
     date: "2025-10-15",
     readTime: 8,
+    views: 1784,
     category: { en: "Customs", id: "Kepabeanan" },
+    tags: ["customs", "pib", "import", "insw", "documents"],
+    author: editor,
     title: {
       en: "PIB Customs Declaration in Indonesia: A Step-by-Step Walkthrough",
       id: "PIB di Indonesia: Panduan Langkah Demi Langkah",
@@ -108,7 +128,10 @@ export const blogPosts = [
     cover: "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=1400&q=80",
     date: "2025-09-30",
     readTime: 5,
+    views: 1203,
     category: { en: "Logistics", id: "Logistik" },
+    tags: ["logistics", "belawan", "ports", "sumatra", "routes"],
+    author: editor,
     title: {
       en: "Belawan Port: Why It's the Underrated Gateway of Western Indonesia",
       id: "Pelabuhan Belawan: Gerbang Indonesia Barat yang Sering Diremehkan",
@@ -141,7 +164,10 @@ export const blogPosts = [
     cover: "https://images.unsplash.com/photo-1605300045061-a2cca0deb38d?auto=format&fit=crop&w=1400&q=80",
     date: "2025-09-08",
     readTime: 6,
+    views: 2156,
     category: { en: "Regulation", id: "Regulasi" },
+    tags: ["regulation", "eudr", "palm-oil", "sustainability", "eu"],
+    author: editor,
     title: {
       en: "EUDR & Indonesian Palm Oil: What Exporters Must Prepare",
       id: "EUDR & Sawit Indonesia: Apa yang Harus Disiapkan Eksportir",
@@ -176,7 +202,10 @@ export const blogPosts = [
     cover: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80",
     date: "2025-08-22",
     readTime: 5,
+    views: 1645,
     category: { en: "Strategy", id: "Strategi" },
+    tags: ["strategy", "partnership", "diligence", "business"],
+    author: editor,
     title: {
       en: "Choosing an International Trading Partner: 7 Questions Worth Asking",
       id: "Memilih Mitra Trading Internasional: 7 Pertanyaan yang Wajib Diajukan",
@@ -213,3 +242,42 @@ export const blogPosts = [
 ];
 
 export const getPostBySlug = (slug) => blogPosts.find((p) => p.slug === slug);
+
+export const getAllTags = () => {
+  const counts = {};
+  blogPosts.forEach((p) => p.tags.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
+  return Object.entries(counts)
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+};
+
+export const getAllCategories = (lang) => {
+  const counts = {};
+  blogPosts.forEach((p) => {
+    const key = p.category[lang];
+    counts[key] = (counts[key] || 0) + 1;
+  });
+  return Object.entries(counts).map(([name, count]) => ({ name, count }));
+};
+
+export const getArchive = (lang) => {
+  const map = {};
+  blogPosts.forEach((p) => {
+    const d = new Date(p.date);
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    if (!map[key]) map[key] = { key, year: d.getFullYear(), month: d.getMonth(), count: 0 };
+    map[key].count += 1;
+  });
+  return Object.values(map)
+    .sort((a, b) => b.key.localeCompare(a.key))
+    .map((item) => ({
+      ...item,
+      label: new Date(item.year, item.month, 1).toLocaleDateString(lang === "id" ? "id-ID" : "en-US", {
+        month: "long",
+        year: "numeric",
+      }),
+    }));
+};
+
+export const getPopularPosts = (limit = 4) =>
+  [...blogPosts].sort((a, b) => b.views - a.views).slice(0, limit);
