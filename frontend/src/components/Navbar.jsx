@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { useLang } from "../contexts/LanguageContext";
+import { FlagEN, FlagID } from "./Flags";
 
 export default function Navbar() {
   const { lang, setLang, t } = useLang();
@@ -130,23 +131,40 @@ export default function Navbar() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-3">
-          {/* Lang switch */}
-          <div className="lang-pill" data-testid="language-switcher">
+          {/* Lang switch — flag icons */}
+          <div
+            className={`flex items-center gap-1 p-1 rounded-full border transition-colors ${
+              scrolled || loc.pathname !== "/"
+                ? "bg-teal-pale/60 border-teal/15"
+                : "bg-white/10 border-white/15"
+            }`}
+            data-testid="language-switcher"
+          >
             <button
               onClick={() => setLang("en")}
-              className={lang === "en" ? "active" : ""}
+              className={`flex items-center justify-center w-8 h-8 rounded-full transition-all ${
+                lang === "en"
+                  ? "ring-2 ring-gold scale-105 shadow-md"
+                  : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
+              }`}
               data-testid="lang-en-btn"
               aria-label="English"
+              title="English"
             >
-              EN
+              <FlagEN className="w-6 h-6" />
             </button>
             <button
               onClick={() => setLang("id")}
-              className={lang === "id" ? "active" : ""}
+              className={`flex items-center justify-center w-8 h-8 rounded-full transition-all ${
+                lang === "id"
+                  ? "ring-2 ring-gold scale-105 shadow-md"
+                  : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
+              }`}
               data-testid="lang-id-btn"
               aria-label="Bahasa Indonesia"
+              title="Bahasa Indonesia"
             >
-              ID
+              <FlagID className="w-6 h-6" />
             </button>
           </div>
 

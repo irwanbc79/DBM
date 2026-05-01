@@ -1,16 +1,15 @@
-import { ComposableMap, Geographies, Geography, Line, Marker } from "react-simple-maps";
 import { useLang } from "../contexts/LanguageContext";
 
-const geoUrl = "/indonesia-geo.json";
-
+// Markers positioned in % relative to the uploaded base image (1024x1024 with map roughly centered)
+// Each marker: x/y in viewport % of the IMAGE container
 const CITIES = [
-  { name: "Medan", coords: [98.6722, 3.5952], hq: true, label: { en: "HQ", id: "PUSAT" } },
-  { name: "Jakarta", coords: [106.8456, -6.2088] },
-  { name: "Surabaya", coords: [112.7521, -7.2575] },
-  { name: "Balikpapan", coords: [116.8528, -1.2379] },
-  { name: "Makassar", coords: [119.4327, -5.1477] },
-  { name: "Manado", coords: [124.8421, 1.4748] },
-  { name: "Jayapura", coords: [140.7181, -2.5337] },
+  { name: "Medan", x: 19, y: 41, hq: true },
+  { name: "Jakarta", x: 36, y: 64 },
+  { name: "Surabaya", x: 47, y: 67 },
+  { name: "Balikpapan", x: 55, y: 53 },
+  { name: "Makassar", x: 62, y: 64 },
+  { name: "Manado", x: 70, y: 47 },
+  { name: "Jayapura", x: 90, y: 56 },
 ];
 
 export default function IndonesiaMap() {
@@ -20,7 +19,7 @@ export default function IndonesiaMap() {
       {/* Decorative compass */}
       <svg
         viewBox="0 0 60 60"
-        className="absolute top-3 right-3 w-14 h-14 opacity-60 pointer-events-none"
+        className="absolute top-2 right-2 w-12 h-12 opacity-50 pointer-events-none z-10"
         aria-hidden
       >
         <circle cx="30" cy="30" r="24" fill="none" stroke="#1a7a6a" strokeWidth="0.6" strokeDasharray="2,3" />
@@ -31,128 +30,91 @@ export default function IndonesiaMap() {
         <text x="30" y="6" textAnchor="middle" fontSize="6" fontWeight="700" fill="#0d5546">N</text>
       </svg>
 
-      {/* Subtle grid background */}
-      <div
-        className="absolute inset-0 rounded-2xl pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(26,122,106,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(26,122,106,0.06) 1px, transparent 1px)",
-          backgroundSize: "30px 30px",
-        }}
-      />
+      <div className="relative aspect-[10/8] w-full">
+        <img
+          src="/indonesia-map.png"
+          alt="Indonesia coverage map"
+          className="absolute inset-0 w-full h-full object-contain select-none pointer-events-none"
+          draggable={false}
+        />
 
-      <ComposableMap
-        projection="geoMercator"
-        projectionConfig={{ center: [118, -2.5], scale: 750 }}
-        width={800}
-        height={360}
-        style={{ width: "100%", height: "auto" }}
-      >
-        <defs>
-          <linearGradient id="provinceGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#2a9d8a" />
-            <stop offset="100%" stopColor="#0d5546" />
-          </linearGradient>
-          <filter id="hqGlow" x="-150%" y="-150%" width="400%" height="400%">
-            <feGaussianBlur stdDeviation="3" />
-          </filter>
-        </defs>
+        {/* Trade route SVG layer */}
+        <svg
+          viewBox="0 0 100 80"
+          preserveAspectRatio="none"
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          aria-hidden
+        >
+          {CITIES.filter((c) => !c.hq).map((c, i) => (
+            <line
+              key={`route-${c.name}`}
+              x1="19"
+              y1={(41 / 100) * 80}
+              x2={c.x}
+              y2={(c.y / 100) * 80}
+              stroke="#c9a227"
+              strokeOpacity="0.45"
+              strokeWidth="0.25"
+              strokeDasharray="0.8,0.6"
+              strokeLinecap="round"
+              style={{
+                animation: `dashFlow 4s linear infinite`,
+                animationDelay: `${i * 0.25}s`,
+              }}
+              vectorEffect="non-scaling-stroke"
+            />
+          ))}
+        </svg>
 
-        <Geographies geography={geoUrl}>
-          {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill="url(#provinceGrad)"
-                stroke="#0d5546"
-                strokeWidth={0.4}
-                style={{
-                  default: { outline: "none" },
-                  hover: { fill: "#1a7a6a", outline: "none", cursor: "default" },
-                  pressed: { outline: "none" },
-                }}
-              />
-            ))
-          }
-        </Geographies>
-
-        {/* Animated trade routes from HQ Medan to all partner cities */}
-        {CITIES.filter((c) => !c.hq).map((c, i) => (
-          <Line
-            key={`route-${c.name}`}
-            from={[98.6722, 3.5952]}
-            to={c.coords}
-            stroke="#c9a227"
-            strokeWidth={0.8}
-            strokeOpacity={0.55}
-            strokeDasharray="3,3"
-            strokeLinecap="round"
-            style={{
-              animation: `dashFlow 4s linear infinite`,
-              animationDelay: `${i * 0.25}s`,
-            }}
-          />
-        ))}
-
+        {/* Markers overlay */}
         {CITIES.map((c) => (
-          <Marker key={c.name} coordinates={c.coords}>
+          <div
+            key={c.name}
+            className="absolute -translate-x-1/2 -translate-y-1/2 group/m"
+            style={{ left: `${c.x}%`, top: `${c.y}%` }}
+          >
             {c.hq ? (
-              <>
-                <circle r={10} fill="rgba(201,162,39,0.3)" filter="url(#hqGlow)" />
-                <circle r={6} fill="#c9a227" stroke="#fff" strokeWidth={1.5} />
-                <circle r={2} fill="#083d33" />
-                <text
-                  x={11}
-                  y={-7}
-                  fontFamily="'Plus Jakarta Sans',sans-serif"
-                  fontSize={8}
-                  fontWeight={800}
-                  fill="#083d33"
-                >
-                  {c.name} ★
-                </text>
-                <text
-                  x={11}
-                  y={3}
-                  fontFamily="'Plus Jakarta Sans',sans-serif"
-                  fontSize={6.5}
-                  fontWeight={600}
-                  fill="#1a7a6a"
-                >
-                  {t.reach.legend.hq}
-                </text>
-              </>
+              <div className="relative">
+                <span className="absolute inset-0 -m-3 rounded-full bg-gold/30 blur-md animate-ping" />
+                <span className="relative block w-5 h-5 rounded-full bg-gold ring-2 ring-white shadow-lg shadow-gold/50">
+                  <span className="absolute inset-1.5 rounded-full bg-white" />
+                  <span className="absolute inset-2.5 rounded-full bg-gold" />
+                </span>
+                <div className="absolute left-7 top-1/2 -translate-y-1/2 whitespace-nowrap">
+                  <div className="font-bold text-[12px] text-teal-deep leading-none flex items-center gap-1.5">
+                    {c.name}
+                    <span className="text-gold">★</span>
+                  </div>
+                  <div className="text-[9px] uppercase tracking-[0.12em] text-teal/70 font-bold mt-1">
+                    {t.reach.legend.hq}
+                  </div>
+                </div>
+              </div>
             ) : (
-              <>
-                <circle r={6} fill="rgba(42,157,138,0.25)" />
-                <circle r={3.5} fill="#2a9d8a" stroke="#fff" strokeWidth={1} />
-                <text
-                  x={6}
-                  y={-3}
-                  fontFamily="'Plus Jakarta Sans',sans-serif"
-                  fontSize={6.5}
-                  fontWeight={700}
-                  fill="#083d33"
-                >
+              <div className="relative">
+                <span className="absolute inset-0 -m-2 rounded-full bg-teal-light/30 blur-sm animate-ping" style={{ animationDuration: "3s" }} />
+                <span className="relative block w-3 h-3 rounded-full bg-teal-light ring-2 ring-white shadow-md" />
+                <div className="absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] font-bold text-teal-deep">
                   {c.name}
-                </text>
-              </>
+                </div>
+              </div>
             )}
-          </Marker>
+          </div>
         ))}
-      </ComposableMap>
+      </div>
 
       {/* Legend */}
-      <div className="flex items-center gap-5 mt-1 text-[11px] text-teal-deep">
+      <div className="flex items-center gap-5 mt-3 text-[11px] text-teal-deep">
         <span className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-gold" /> {t.reach.legend.hq}
+          <span className="w-2.5 h-2.5 rounded-full bg-gold ring-1 ring-white shadow" />
+          {t.reach.legend.hq}
         </span>
         <span className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-teal-light" /> {t.reach.legend.city}
+          <span className="w-2.5 h-2.5 rounded-full bg-teal-light ring-1 ring-white shadow" />
+          {t.reach.legend.city}
         </span>
         <span className="ml-auto text-[10px] uppercase tracking-[0.18em] text-teal/60 font-bold">
-          Nusantara · 38 Provinces
+          Nusantara
         </span>
       </div>
     </div>
