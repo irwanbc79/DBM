@@ -1,0 +1,87 @@
+{
+  "a9abf937-498c-4981-9c0a-e0638265d732": {
+    "filename": "asset_000.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "11bbef80-bd9a-41ea-b9ac-1eea5a34b87e": {
+    "filename": "asset_001.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "bd4ed74a-3c47-4dfd-8bb4-e2c36661326e": {
+    "filename": "asset_002.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "f7481250-354a-4ae6-bae7-e0c08cd41395": {
+    "filename": "asset_003.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "e3459ff5-3dd9-40f0-b3ac-0b012536d5d4": {
+    "filename": "asset_004.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "2e42abce-80b8-4f68-b8ea-cfadb752c975": {
+    "filename": "asset_005.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "01f9aa16-ca3b-4ee4-b440-24c2eb6ede6f": {
+    "filename": "asset_006.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "4696bcd8-d36a-4941-8c1c-044ba8e3ea95": {
+    "filename": "asset_007.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  },
+  "5c7c6a93-ca12-4498-bede-0ee777288142": {
+    "filename": "asset_008.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "d0e472dc-63ad-4352-86bc-e061569b02d5": {
+    "filename": "asset_009.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "5c557265-d462-494d-8f62-51b8e73dbb34": {
+    "filename": "asset_010.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "948d5052-9fc4-4f26-aaae-0cee82bc0c5d": {
+    "filename": "asset_011.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "c9b10129-0a8c-4881-b295-0c2e41c8117f": {
+    "filename": "asset_012.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "a46a13dd-3eaf-4701-93b3-b4c773dd70e6": {
+    "filename": "asset_013.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "1f086634-fbf1-44b0-bd3c-e3b059195873": {
+    "filename": "asset_014.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "2fc949fb-6926-4f42-9bc1-80957b394d01": {
+    "filename": "asset_015.woff2",
+    "mime": "font/woff2",
+    "compressed": false
+  },
+  "21c9fd67-416d-49ab-8cb9-1f5f2188f816": {
+    "filename": "asset_016.jpg",
+    "mime": "image/jpeg",
+    "compressed": false
+  }
+}
