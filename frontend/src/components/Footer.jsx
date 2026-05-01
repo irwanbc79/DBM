@@ -14,8 +14,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center">
-                <span className="font-serif text-teal-deep text-2xl font-bold italic">D</span>
+              <div className="w-12 h-12 rounded-full overflow-hidden ring-1 ring-gold/40 bg-teal-deep">
+                <img
+                  src="/logo.jpg"
+                  alt="PT. Dira Baraka Mulia"
+                  className="w-full h-full object-cover scale-[2.2] -translate-y-[3%]"
+                  draggable={false}
+                />
               </div>
               <div className="leading-tight">
                 <div className="font-serif font-bold text-white text-base">PT. Dira Baraka Mulia</div>

@@ -56,8 +56,13 @@ export default function Navbar() {
           data-testid="logo-link"
         >
           <div className="relative">
-            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-teal-deep to-teal flex items-center justify-center shadow-lg shadow-teal/30">
-              <span className="font-serif text-gold-light text-xl font-bold italic">D</span>
+            <div className="w-11 h-11 rounded-full overflow-hidden ring-1 ring-gold/40 shadow-lg shadow-teal-deep/30 bg-teal-deep">
+              <img
+                src="/logo.jpg"
+                alt="PT. Dira Baraka Mulia"
+                className="w-full h-full object-cover scale-[2.2] -translate-y-[3%]"
+                draggable={false}
+              />
             </div>
             <div className="absolute -inset-0.5 rounded-full bg-gold/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
