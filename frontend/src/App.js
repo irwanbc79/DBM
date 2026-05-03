@@ -4,6 +4,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingWA from "./components/FloatingWA";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -21,6 +22,7 @@ function App() {
         </Routes>
         <Footer />
         <FloatingWA />
+        <ScrollToTop />
       </BrowserRouter>
     </LanguageProvider>
   );
