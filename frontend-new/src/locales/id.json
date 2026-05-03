@@ -1,0 +1,148 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "services": "Layanan",
+    "commodities": "Komoditas",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Hubungi Kami",
+    "langLabel": "Bahasa"
+  },
+  "hero": {
+    "location": "Medan, Sumatera Utara — Est. 2023",
+    "badge": "NIB 2103230032415 · PMDN · API-U Aktif · NPWP Terdaftar",
+    "title1": "Mitra",
+    "title2": "Ekspor–Impor",
+    "title3": "Indonesia",
+    "desc": "PT. Dira Baraka Mulia — mitra terpercaya Anda untuk ekspor, impor, layanan undername, fasilitasi kepabeanan, dan perdagangan komoditas internasional dari Sumatera Utara.",
+    "cta1": "Mulai Kerjasama",
+    "cta2": "Layanan Kami",
+    "stats": {
+      "kbli": "KBLI Aktif",
+      "experience": "Tahun Pengalaman",
+      "contact": "Kontak Terintegrasi"
+    },
+    "portBelawan": "Pelabuhan Belawan",
+    "kualanamu": "Bandara Kualanamu"
+  },
+  "about": {
+    "overline": "Tentang Perusahaan",
+    "title": "Gerbang Anda ke Perdagangan Global",
+    "p1": "PT. Dira Baraka Mulia (DBM) adalah perusahaan dagang ekspor-impor yang berlisensi penuh, berbasis di Medan, Sumatera Utara. Kami spesialisasi dalam layanan undername impor, fasilitasi kepabeanan, perdagangan komoditas, dan konsultasi perdagangan internasional.",
+    "p2": "Berlokasi strategis dekat Pelabuhan Belawan — gerbang maritim utama Sumatera — kami menghubungkan bisnis lokal dengan pasar global secara efisien, legal, dan profesional.",
+    "checks": [
+      "Legalitas OSS Lengkap",
+      "Izin API-U Impor Aktif",
+      "Akses Kepabeanan DJBC",
+      "PMDN Terdaftar",
+      "10 KBLI Aktif",
+      "NPWP Terdaftar"
+    ],
+    "cta": "Diskusi Sekarang",
+    "yearFounded": "Tahun Berdiri",
+    "nibLabel": "Nomor Induk Berusaha"
+  },
+  "services": {
+    "overline": "Layanan Utama",
+    "title": "Yang Kami Lakukan untuk Anda",
+    "desc": "Dari undername impor hingga fasilitasi ekspor — DBM menangani kompleksitas perdagangan internasional agar bisnis Anda bisa fokus berkembang.",
+    "items": [
+      { "name": "Layanan Ekspor", "kbli": "KBLI 46201 · 46319", "text": "Fasilitasi ekspor end-to-end: PEB, COO, sertifikat phytosanitary, pengaturan pengiriman, dan dokumentasi untuk semua jenis komoditas." },
+      { "name": "Layanan Impor", "kbli": "KBLI 46900 · Multi-KBLI", "text": "Manajemen impor lengkap termasuk pengajuan PIB, klasifikasi kepabeanan, pembayaran bea, dan pembebasan dari pelabuhan ke gudang Anda." },
+      { "name": "Undername Impor", "kbli": "API-U · NIB 2103230032415", "text": "Impor barang menggunakan lisensi API-U kami jika Anda belum memilikinya. Legal, transparan, dan tersedia di seluruh Indonesia." },
+      { "name": "General Trading", "kbli": "KBLI 46900", "text": "Perdagangan domestik dan internasional dalam barang umum, peralatan rumah tangga, bahan pangan, dan perlengkapan industri." },
+      { "name": "Kepabeanan & Dokumentasi", "kbli": "Kepabeanan · DJBC", "text": "Bantuan profesional untuk persiapan PIB/PEB, klasifikasi kode HS, koreksi PIB, dan kepatuhan terhadap regulasi DJBC." },
+      { "name": "Konsultasi Perdagangan", "kbli": "Multi-sektor", "text": "Panduan ahli tentang regulasi impor, kepatuhan EUDR, strategi perdagangan, sourcing komoditas, dan masuk pasar baru." }
+    ]
+  },
+  "commodities": {
+    "overline": "Fokus Komoditas",
+    "title": "Apa yang Kami Perdagangkan",
+    "desc": "Komoditas kami yang terdaftar dalam KBLI mencakup pertanian, pangan, barang industri, dan produk konsumen — diperdagangkan dan di-sourcing secara global.",
+    "items": [
+      { "title": "Kopi, Teh & Kakao", "sub": "Ekspor & Impor", "cat": "KBLI 46319" },
+      { "title": "Buah Berminyak (CPO)", "sub": "Komoditas Ekspor", "cat": "KBLI 46201" },
+      { "title": "Pupuk", "sub": "Komoditas Impor", "cat": "KBLI 46612" },
+      { "title": "Sayuran Segar & Bunga", "sub": "Impor & Perdagangan", "cat": "KBLI 46310" },
+      { "title": "Peralatan Rumah Tangga", "sub": "Impor & General Trading", "cat": "KBLI 46494" },
+      { "title": "Bahan Makanan", "sub": "Impor & Perdagangan", "cat": "KBLI 46320" },
+      { "title": "Suku Cadang Sepeda Motor", "sub": "Impor & Perdagangan", "cat": "KBLI 46421" },
+      { "title": "Barang Umum", "sub": "General Trading", "cat": "KBLI 46900" }
+    ]
+  },
+  "why": {
+    "overline": "Keunggulan Kami",
+    "title": "Mengapa DBM Adalah Mitra Terbaik Anda?",
+    "items": [
+      { "title": "Berlisensi & Terverifikasi Penuh", "text": "NIB aktif dengan otoritas impor API-U berlaku di seluruh Indonesia — didukung akses kepabeanan DJBC dan kepatuhan OSS lengkap untuk perdagangan lintas batas." },
+      { "title": "Lokasi Strategis Belawan", "text": "Kantor kami di Grand Jati Junction, Medan Timur berjarak dekat dari Pelabuhan Belawan — terminal kontainer utama Sumatera di Selat Malaka." },
+      { "title": "Spesialis Undername", "text": "Kami salah satu penyedia undername impor berpengalaman di Sumatera Utara — legal, struktur biaya transparan, dan dokumentasi lengkap dari BC 2.0 hingga pengiriman." },
+      { "title": "Keahlian Kepabeanan & Kode HS", "text": "Kami melakukan pra-klasifikasi setiap pengiriman sebelum berangkat. Kode HS yang benar = bea yang benar = lebih sedikit inspeksi jalur merah dan clearance lebih cepat." },
+      { "title": "Dokumentasi Perdagangan Bilingual", "text": "Dokumentasi perdagangan lengkap dalam bahasa Inggris untuk pemasok dan pembeli internasional. Kami menjembatani hambatan bahasa dalam kepabeanan, kontrak, dan negosiasi." },
+      { "title": "Fleksibel untuk Semua Skala", "text": "Dari importir pemula hingga eksportir rutin — kami menyesuaikan layanan dan struktur biaya sesuai volume, jadwal, dan anggaran Anda." }
+    ]
+  },
+  "blog": {
+    "overline": "Artikel & Insight",
+    "title": "Pusat Pengetahuan Perdagangan",
+    "viewAll": "Lihat Semua",
+    "readMore": "Baca Selengkapnya",
+    "backToBlog": "Kembali ke Blog",
+    "loading": "Memuat artikel...",
+    "noPosts": "Belum ada artikel.",
+    "by": "Oleh"
+  },
+  "faq": {
+    "overline": "FAQ",
+    "title": "Pertanyaan yang Sering Diajukan",
+    "items": [
+      { "q": "Apa itu undername impor dan bagaimana cara kerjanya?", "a": "Undername impor adalah skema legal di mana DBM menggunakan lisensi API-U kami untuk mengimpor barang atas nama bisnis Anda. Barang, biaya, dan tanggung jawab milik Anda — kami yang menyediakan identitas kepabeanan. Biaya umumnya 1,5%–3% dari nilai CIF ditambah bea masuk dan PPN sebagai pass-through." },
+      { "q": "Komoditas apa yang bisa dibantu impor atau ekspor oleh DBM?", "a": "Kode KBLI kami mencakup pupuk, bahan makanan, kopi/teh/kakao, buah berminyak, sayuran segar, bunga, peralatan rumah tangga, suku cadang sepeda motor, dan barang umum. Hubungi kami untuk komoditas yang tidak tercantum — setiap kasus kami kaji secara individual." },
+      { "q": "Bagaimana proses kepabeanan PIB bekerja?", "a": "PIB (Pemberitahuan Impor Barang) adalah deklarasi impor yang diajukan melalui CEISA/INSW. Kami menangani semua langkah: persiapan dokumen, klasifikasi kode HS, pengajuan PIB, pembayaran bea, dan pembebasan dari pelabuhan. Sebagian besar pengiriman clear dalam 1–3 hari kerja di jalur hijau/kuning." },
+      { "q": "Apakah DBM bisa menangani ekspor dari Sumatera Utara?", "a": "Ya. Kami mengelola proses ekspor lengkap: pengajuan PEB, Sertifikat Asal (COO), sertifikat phytosanitary, koordinasi pengiriman, dan dokumentasi. Kami spesialisasi komoditas Sumatera seperti kopi, CPO, karet, dan produk pertanian via Pelabuhan Belawan." },
+      { "q": "Apa itu EUDR dan apakah berpengaruh pada ekspor saya?", "a": "EUDR (Regulasi Anti-Deforestasi Uni Eropa) mengharuskan pembuktian bahwa komoditas yang masuk UE tidak diproduksi di lahan yang dideforestasi setelah 31 Des 2020. Jika Anda mengekspor sawit, kopi, kakao, karet, kedelai, atau kayu ke UE, Anda memerlukan Due Diligence Statement (DDS). Kami membantu persiapannya." },
+      { "q": "Bagaimana memulai kerjasama dengan DBM?", "a": "Hubungi kami via WhatsApp (+62 812-6488-2678) atau email. Kami merespons dalam 24 jam. Tim kami akan menilai kebutuhan Anda, memberikan proposal biaya yang transparan, dan membimbing Anda dari pengiriman pertama." }
+    ]
+  },
+  "contact": {
+    "overline": "Siap Berdagang?",
+    "title": "Mari Bekerja Sama",
+    "desc": "Apakah Anda importir pemula atau mencari mitra perdagangan jangka panjang yang handal — DBM siap. Konsultasi awal gratis.",
+    "form": {
+      "name": "Nama Lengkap",
+      "email": "Alamat Email",
+      "phone": "No. Telepon",
+      "company": "Perusahaan (opsional)",
+      "subject": "Subjek",
+      "message": "Pesan Anda",
+      "submit": "Kirim Pesan",
+      "sending": "Mengirim...",
+      "success": "Terima kasih! Pesan Anda telah terkirim.",
+      "error": "Gagal mengirim pesan. Coba lagi."
+    },
+    "phoneLabel": "Telepon / WhatsApp",
+    "emailLabel": "Email Resmi",
+    "addressLabel": "Alamat Kantor",
+    "address": "Grand Jati Junction Mall, Level P1 No. 3A, Jl. Perintis Kemerdekaan, Medan Timur 20231",
+    "whatsapp": "WhatsApp Sekarang",
+    "sendEmail": "Kirim Email",
+    "mapTitle": "Lokasi Kantor"
+  },
+  "cta": {
+    "eyebrow": "Mulai Perjalanan Dagang Anda Hari Ini",
+    "title": "Jadikan DBM Mitra Dagang Anda",
+    "desc": "Dari undername impor hingga ekspor komoditas — satu kontak, satu mitra, semua kebutuhan perdagangan internasional Anda dari Sumatera Utara."
+  },
+  "footer": {
+    "tagline": "Spesialis Perdagangan Ekspor-Impor & Fasilitasi Kepabeanan di Sumatera Utara.",
+    "navTitle": "Navigasi",
+    "legalTitle": "Legalitas",
+    "contactTitle": "Kontak",
+    "rights": "All rights reserved.",
+    "nib": "NIB 2103230032415",
+    "oss": "OSS Verified",
+    "apiu": "API-U Aktif",
+    "pmdn": "PMDN Terdaftar"
+  }
+}

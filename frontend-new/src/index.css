@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Playfair Display — professional serif for headings */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* DBM Luxury Teal & Gold */
+    --background: 0 0% 100%;
+    --foreground: 165 50% 8%;           /* #0a1d1a dark teal-black */
+    --surface: 168 30% 97%;
+    --surface-alt: 168 20% 94%;
+    --card: 0 0% 100%;
+    --card-foreground: 165 50% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 50% 8%;
+    --primary: 168 69% 28%;             /* #1a7a6a teal */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 168 20% 94%;
+    --secondary-foreground: 165 50% 8%;
+    --muted: 168 20% 94%;
+    --muted-foreground: 168 15% 42%;
+    --accent: 43 71% 48%;               /* #c9a227 gold */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 168 20% 88%;
+    --input: 168 20% 88%;
+    --ring: 43 71% 48%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 165 60% 5%;           /* #051c18 deep forest */
+    --foreground: 168 30% 96%;
+    --surface: 165 50% 8%;
+    --surface-alt: 165 40% 12%;
+    --card: 165 50% 8%;
+    --card-foreground: 168 30% 96%;
+    --popover: 165 50% 8%;
+    --popover-foreground: 168 30% 96%;
+    --primary: 168 30% 96%;
+    --primary-foreground: 165 60% 5%;
+    --secondary: 165 40% 12%;
+    --secondary-foreground: 168 30% 96%;
+    --muted: 165 40% 12%;
+    --muted-foreground: 168 20% 60%;
+    --accent: 43 71% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 168 30% 96%;
+    --border: 165 40% 16%;
+    --input: 165 40% 16%;
+    --ring: 43 71% 48%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: hsl(var(--accent)); color: white; }
+}
+
+/* ═══ DBM Custom components ═══ */
+.dbm-container { @apply max-w-7xl mx-auto px-6 md:px-12; }
+.dbm-section { @apply py-20 md:py-28; }
+.dbm-overline {
+  @apply text-xs font-bold uppercase tracking-[0.24em];
+  color: hsl(var(--accent));
+}
+.dbm-h1 { @apply text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05]; }
+.dbm-h2 { @apply text-4xl md:text-5xl font-semibold leading-tight; }
+.dbm-h3 { @apply text-2xl md:text-3xl font-semibold; }
+
+.dbm-btn {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-200;
+  border-radius: 0.375rem;
+}
+.dbm-btn-primary {
+  background: hsl(var(--accent));
+  color: white;
+}
+.dbm-btn-primary:hover { background: #a08217; transform: translateY(-2px); }
+.dbm-btn-ghost {
+  background: transparent;
+  border: 2px solid hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+.dbm-btn-ghost:hover { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+
+.dbm-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+.dbm-card:hover {
+  transform: translateY(-4px);
+  border-color: hsl(var(--accent));
+  box-shadow: 0 8px 32px hsl(var(--accent) / 0.12);
+}
+
+/* Marquee gradient mask edges */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Hero background */
+.hero-grid-bg {
+  background-image: linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.dark .hero-grid-bg {
+  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+}
+
+/* Noise overlay (subtle) */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Prose for blog */
+.dbm-prose {
+  @apply text-base md:text-lg leading-relaxed;
+  color: hsl(var(--foreground));
+}
+.dbm-prose p { margin-bottom: 1.4em; }
+.dbm-prose h2 { @apply text-3xl font-semibold mt-10 mb-4; font-family: 'Playfair Display', Georgia, serif; }
+.dbm-prose h3 { @apply text-2xl font-semibold mt-8 mb-3; font-family: 'Playfair Display', Georgia, serif; }
+.dbm-prose ul, .dbm-prose ol { margin-bottom: 1.4em; padding-left: 1.5em; }
+.dbm-prose li { margin-bottom: 0.5em; }
+.dbm-prose strong { color: hsl(var(--primary)); font-weight: 600; }
+
+/* Ticker bar */
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: hsl(var(--surface)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / 0.4); }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent)); }
+
+/* Fixes for data-debug-wrapper if used */
+@layer base {
+  [data-debug-wrapper="true"] { display: contents !important; }
+}

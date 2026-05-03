@@ -1,0 +1,148 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "commodities": "Commodities",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "langLabel": "Language"
+  },
+  "hero": {
+    "location": "Medan, North Sumatra — Est. 2023",
+    "badge": "NIB 2103230032415 · PMDN · API-U Active · NPWP Registered",
+    "title1": "Indonesia's",
+    "title2": "Export–Import",
+    "title3": "Trade Partner",
+    "desc": "PT. Dira Baraka Mulia — your trusted partner for export, import, undername services, customs facilitation, and international commodity trading from North Sumatra.",
+    "cta1": "Start Partnership",
+    "cta2": "Our Services",
+    "stats": {
+      "kbli": "Active KBLI Codes",
+      "experience": "Years of Experience",
+      "contact": "Integrated Contact"
+    },
+    "portBelawan": "Belawan Port",
+    "kualanamu": "Kualanamu Airport"
+  },
+  "about": {
+    "overline": "About The Company",
+    "title": "Your Gateway to Global Trade",
+    "p1": "PT. Dira Baraka Mulia (DBM) is a fully licensed export-import trade company based in Medan, North Sumatra. We specialize in undername import services, customs facilitation, commodity trading, and international trade consulting.",
+    "p2": "Strategically located near Belawan Port — Indonesia's key maritime gateway for Sumatra — we bridge local businesses with global markets efficiently, legally, and professionally.",
+    "checks": [
+      "Full OSS Legal Compliance",
+      "Active API-U Import License",
+      "DJBC Customs Access",
+      "Registered PMDN",
+      "10 Active KBLI Codes",
+      "NPWP Registered"
+    ],
+    "cta": "Let's Talk",
+    "yearFounded": "Year Founded",
+    "nibLabel": "Business Registration Number"
+  },
+  "services": {
+    "overline": "Core Services",
+    "title": "What We Do For You",
+    "desc": "From undername import to export facilitation — DBM handles the complexity of international trade so your business can focus on growth.",
+    "items": [
+      { "name": "Export Services", "kbli": "KBLI 46201 · 46319", "text": "End-to-end export facilitation: PEB, COO, phytosanitary certificates, shipping arrangements, and documentation for any commodity." },
+      { "name": "Import Services", "kbli": "KBLI 46900 · Multi-KBLI", "text": "Full import management including PIB filing, customs classification, duty payment, and port clearance to your warehouse." },
+      { "name": "Undername Import", "kbli": "API-U · NIB 2103230032415", "text": "Import goods under our API-U license if you don't have your own. Legal, transparent, and available across Indonesia." },
+      { "name": "General Trading", "kbli": "KBLI 46900", "text": "Domestic and international trade in general merchandise, household goods, food ingredients, and industrial supplies." },
+      { "name": "Customs & Documentation", "kbli": "Kepabeanan · DJBC", "text": "Professional assistance with PIB/PEB preparation, HS code classification, PIB correction, and DJBC compliance matters." },
+      { "name": "Trade Consulting", "kbli": "Multi-sector", "text": "Expert guidance on import regulations, EUDR compliance, trade strategy, commodity sourcing, and market entry." }
+    ]
+  },
+  "commodities": {
+    "overline": "Commodity Focus",
+    "title": "What We Trade",
+    "desc": "Our KBLI-registered commodities span agriculture, food, industrial goods, and consumer products — traded and sourced globally.",
+    "items": [
+      { "title": "Coffee, Tea & Cocoa", "sub": "Export & Import", "cat": "KBLI 46319" },
+      { "title": "Oil-Bearing Fruits (CPO)", "sub": "Export Commodity", "cat": "KBLI 46201" },
+      { "title": "Fertilizers", "sub": "Import Commodity", "cat": "KBLI 46612" },
+      { "title": "Fresh Vegetables & Flowers", "sub": "Import & Trading", "cat": "KBLI 46310" },
+      { "title": "Household Appliances", "sub": "Import & General Trading", "cat": "KBLI 46494" },
+      { "title": "Food Ingredients", "sub": "Import & Trading", "cat": "KBLI 46320" },
+      { "title": "Motorcycle Spare Parts", "sub": "Import & Trading", "cat": "KBLI 46421" },
+      { "title": "General Merchandise", "sub": "General Trading", "cat": "KBLI 46900" }
+    ]
+  },
+  "why": {
+    "overline": "Why Choose Us",
+    "title": "Why DBM Is Your Best Trade Partner?",
+    "items": [
+      { "title": "Licensed & Fully Verified", "text": "NIB active with API-U import authority valid across all of Indonesia — backed by DJBC customs access and complete OSS compliance for cross-border trade." },
+      { "title": "Strategic Belawan Location", "text": "Our office at Grand Jati Junction, Medan Timur is minutes from Belawan Port — Sumatra's primary container terminal on the Strait of Malacca." },
+      { "title": "Undername Specialist", "text": "We're one of North Sumatra's experienced undername import providers — legal, transparent fee structure, and proper documentation from BC 2.0 to delivery." },
+      { "title": "Customs & HS Code Expertise", "text": "We pre-classify every shipment before departure. Correct HS codes = correct duties = fewer red-lane inspections and faster clearance." },
+      { "title": "Bilingual Trade Documentation", "text": "Full English-language trade documentation for international suppliers and buyers. We bridge language barriers in customs, contracts, and negotiations." },
+      { "title": "Flexible for All Scales", "text": "From first-time importers to regular exporters — we tailor our services and fee structures to fit your volume, timeline, and budget." }
+    ]
+  },
+  "blog": {
+    "overline": "Articles & Insights",
+    "title": "Trade Knowledge Hub",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "loading": "Loading articles...",
+    "noPosts": "No posts yet.",
+    "by": "By"
+  },
+  "faq": {
+    "overline": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "q": "What is undername import and how does it work?", "a": "Undername import is a legal arrangement where DBM uses our API-U license to import goods on behalf of your business. Your goods, your cost — we provide the customs identity. Fees are typically 1.5%–3% of CIF value plus duty and VAT as pass-through costs." },
+      { "q": "What commodities can DBM help import or export?", "a": "Our KBLI codes cover fertilizers, food ingredients, coffee/tea/cocoa, oil-bearing fruits, fresh vegetables, flowers, household appliances, motorcycle spare parts, and general merchandise. Contact us for commodities not listed — we assess each case individually." },
+      { "q": "How does the PIB customs process work?", "a": "PIB (Pemberitahuan Impor Barang) is the import declaration filed through CEISA/INSW. We handle all steps: document prep, HS code classification, PIB submission, duty payment, and port clearance. Most shipments clear in 1–3 business days on green/yellow lane." },
+      { "q": "Can DBM handle exports from North Sumatra?", "a": "Yes. We manage the full export process: PEB filing, Certificate of Origin (COO), phytosanitary certificates, shipping coordination, and documentation. We specialize in Sumatran commodities like coffee, CPO, rubber, and agricultural products via Belawan Port." },
+      { "q": "What is EUDR and does it affect my exports?", "a": "EUDR (EU Deforestation Regulation) requires proof that commodities entering the EU were not produced on deforested land after Dec 31, 2020. If you export palm oil, coffee, cocoa, rubber, soy, or wood products to the EU, you need a Due Diligence Statement (DDS). We help you prepare this." },
+      { "q": "How do I start working with DBM?", "a": "Contact us via WhatsApp (+62 812-6488-2678) or email. We respond within 24 hours. Our team will assess your requirements, provide a transparent fee proposal, and guide you through the process from first shipment onward." }
+    ]
+  },
+  "contact": {
+    "overline": "Ready to Trade?",
+    "title": "Let's Work Together",
+    "desc": "Whether you're importing for the first time or looking for a reliable long-term trade partner — DBM is ready. Free initial consultation.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company (optional)",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you! Your message has been sent.",
+      "error": "Failed to send message. Please try again."
+    },
+    "phoneLabel": "Phone / WhatsApp",
+    "emailLabel": "Official Email",
+    "addressLabel": "Office Address",
+    "address": "Grand Jati Junction Mall, Level P1 No. 3A, Jl. Perintis Kemerdekaan, Medan Timur 20231",
+    "whatsapp": "WhatsApp Now",
+    "sendEmail": "Send Email",
+    "mapTitle": "Office Location"
+  },
+  "cta": {
+    "eyebrow": "Start Your Trade Journey Today",
+    "title": "Make DBM Your Trade Partner",
+    "desc": "From undername import to commodity export — one contact, one partner, all your international trade needs from North Sumatra."
+  },
+  "footer": {
+    "tagline": "Export–Import Trade & Customs Facilitation Specialist in North Sumatra.",
+    "navTitle": "Navigation",
+    "legalTitle": "Legal",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved.",
+    "nib": "NIB 2103230032415",
+    "oss": "OSS Verified",
+    "apiu": "API-U Active",
+    "pmdn": "PMDN Registered"
+  }
+}
