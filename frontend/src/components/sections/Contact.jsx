@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Clock, Mail, MapPin, MessageCircle, Phone, Send, User } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Send, User } from "lucide-react";
 import { useLang } from "../../contexts/LanguageContext";
 
 const SERVICES = [
@@ -165,6 +165,26 @@ export default function Contact() {
               {t.contact.submit}
             </button>
           </form>
+
+          {/* Logo brand block */}
+          <div className="mt-10 pt-8 border-t border-teal/10 flex flex-col items-center gap-4">
+            <img
+              src="/logo.jpg"
+              alt="PT. Dira Baraka Mulia"
+              className="w-36 h-auto object-contain opacity-90"
+            />
+            <div className="text-center">
+              <p className="font-serif text-teal-deep text-xl font-bold tracking-wide">
+                DIRA BARAKA MULIA
+              </p>
+              <p className="text-[11px] uppercase tracking-[0.25em] text-teal/60 font-semibold mt-1">
+                Trusted Trading Company
+              </p>
+              <p className="text-[12px] text-muted-foreground mt-3 max-w-[260px] mx-auto leading-relaxed italic">
+                "Jembatan bisnis Anda ke pasar global."
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
