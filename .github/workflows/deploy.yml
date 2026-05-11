@@ -29,6 +29,7 @@ jobs:
         run: npm run build
         env:
           CI: false
+          REACT_APP_ADSENSE_CLIENT: ca-pub-5616961797801657
 
       - name: Deploy via FTP to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
