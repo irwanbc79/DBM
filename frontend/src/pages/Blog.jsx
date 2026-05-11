@@ -1,10 +1,12 @@
 import { Link, useSearchParams } from "react-router-dom";
-import { ArrowRight, Calendar, Clock, Flame, X } from "lucide-react";
-import { Fragment, useEffect, useMemo } from "react";
+import { ArrowRight, Calendar, Clock, ChevronLeft, ChevronRight, Flame, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { useLang } from "../contexts/LanguageContext";
 import { useReveal } from "../hooks/use-reveal";
 import BlogSidebar, { filterPosts } from "../components/blog/Sidebar";
 import AdSlot from "../components/AdSlot";
+
+const PAGE_SIZE = 6;
 
 const fmt = (d, lang) =>
   new Date(d).toLocaleDateString(lang === "id" ? "id-ID" : "en-US", {
@@ -16,13 +18,38 @@ const fmt = (d, lang) =>
 export default function Blog() {
   const { lang, t } = useLang();
   const [params, setParams] = useSearchParams();
+  const [page, setPage] = useState(1);
   useReveal();
 
   const paramsKey = params.toString();
   useEffect(() => {
     document.title = `${t.blog.title_em} — PT. Dira Baraka Mulia`;
     window.scrollTo(0, 0);
+
+    // JSON-LD Blog listing
+    const existing = document.getElementById("jsonld-blog");
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.id = "jsonld-blog";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "Trade Insights — PT. Dira Baraka Mulia",
+      description: t.blog.lead,
+      url: "https://dira.co.id/blog",
+      publisher: {
+        "@type": "Organization",
+        name: "PT. Dira Baraka Mulia",
+        logo: { "@type": "ImageObject", url: "https://dira.co.id/logo.jpg" },
+      },
+    });
+    document.head.appendChild(script);
+    return () => { const s = document.getElementById("jsonld-blog"); if (s) s.remove(); };
   }, [t, paramsKey]);
+
+  // Reset page when filters change
+  useEffect(() => { setPage(1); }, [paramsKey]);
 
   const filtered = useMemo(() => filterPosts(params, lang), [params, lang]);
 
@@ -34,9 +61,16 @@ export default function Blog() {
 
   const clearAll = () => setParams({}, { replace: true });
 
-  // Unfiltered view: show featured + rest. Filtered: show all matches in grid.
+  // Unfiltered view: show featured post + paginated grid below
   const featured = !hasFilters ? filtered[0] : null;
-  const grid = !hasFilters ? filtered.slice(1) : filtered;
+  const allGrid = !hasFilters ? filtered.slice(1) : filtered;
+  const totalPages = Math.ceil(allGrid.length / PAGE_SIZE);
+  const grid = allGrid.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+  const goToPage = (p) => {
+    setPage(p);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <main className="bg-[#fbfbf9]">
@@ -143,19 +177,23 @@ export default function Blog() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {grid.map((p, i) => (
-                  <>
-                    <BlogCard key={p.slug} post={p} lang={lang} labels={t.blog} />
-                    {/* In-feed ad after 2nd card */}
-                    {i === 1 && (
-                      <div className="md:col-span-2" key="ad-in-feed">
-                        <AdSlot slot="blog-in-feed" format="in-feed" label="In-Feed Native" />
-                      </div>
-                    )}
-                  </>
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {grid.map((p, i) => (
+                    <div key={p.slug} className="contents">
+                      <BlogCard post={p} lang={lang} labels={t.blog} />
+                      {i === 1 && (
+                        <div className="md:col-span-2">
+                          <AdSlot slot="blog-in-feed" format="in-feed" label="In-Feed Native" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                {totalPages > 1 && (
+                  <Pagination page={page} totalPages={totalPages} onGo={goToPage} labels={t.blog} />
+                )}
+              </>
             )}
           </div>
 
@@ -250,5 +288,47 @@ const ActiveFilters = ({ params, setParams, total, labels, clearAll }) => {
         {labels.clearAll}
       </button>
     </div>
+  );
+};
+
+const Pagination = ({ page, totalPages, onGo, labels }) => {
+  const pages = [];
+  for (let i = 1; i <= totalPages; i++) pages.push(i);
+
+  return (
+    <nav className="mt-10 flex items-center justify-center gap-2" aria-label="Pagination">
+      <button
+        onClick={() => onGo(page - 1)}
+        disabled={page === 1}
+        className="w-9 h-9 rounded-full flex items-center justify-center border border-teal/15 text-teal-deep hover:bg-teal hover:text-white hover:border-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        aria-label="Previous page"
+      >
+        <ChevronLeft className="w-4 h-4" />
+      </button>
+
+      {pages.map((p) => (
+        <button
+          key={p}
+          onClick={() => onGo(p)}
+          className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+            p === page
+              ? "bg-teal-deep text-gold-light shadow-md"
+              : "border border-teal/15 text-teal-deep hover:bg-teal hover:text-white hover:border-teal"
+          }`}
+          aria-current={p === page ? "page" : undefined}
+        >
+          {p}
+        </button>
+      ))}
+
+      <button
+        onClick={() => onGo(page + 1)}
+        disabled={page === totalPages}
+        className="w-9 h-9 rounded-full flex items-center justify-center border border-teal/15 text-teal-deep hover:bg-teal hover:text-white hover:border-teal disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        aria-label="Next page"
+      >
+        <ChevronRight className="w-4 h-4" />
+      </button>
+    </nav>
   );
 };

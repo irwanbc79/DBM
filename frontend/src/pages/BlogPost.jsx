@@ -62,10 +62,66 @@ export default function BlogPost() {
   useReveal();
 
   useEffect(() => {
-    if (post) {
-      document.title = `${post.title[lang]} — PT. Dira Baraka Mulia`;
-      window.scrollTo(0, 0);
-    }
+    if (!post) return;
+    const title = `${post.title[lang]} — PT. Dira Baraka Mulia`;
+    document.title = title;
+    window.scrollTo(0, 0);
+
+    // Dynamic OG / Twitter meta per artikel
+    const canonical = `https://dira.co.id/blog/${post.slug}`;
+    const setMeta = (sel, attr, val) => {
+      let el = document.querySelector(sel);
+      if (!el) { el = document.createElement("meta"); document.head.appendChild(el); }
+      el.setAttribute(attr, val);
+    };
+    setMeta('meta[name="description"]', "content", post.excerpt[lang]);
+    setMeta('meta[property="og:title"]', "content", title);
+    setMeta('meta[property="og:description"]', "content", post.excerpt[lang]);
+    setMeta('meta[property="og:image"]', "content", post.cover);
+    setMeta('meta[property="og:url"]', "content", canonical);
+    setMeta('meta[property="og:type"]', "content", "article");
+    setMeta('meta[name="twitter:title"]', "content", title);
+    setMeta('meta[name="twitter:description"]', "content", post.excerpt[lang]);
+    setMeta('meta[name="twitter:image"]', "content", post.cover);
+
+    // Canonical link
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement("link"); link.rel = "canonical"; document.head.appendChild(link); }
+    link.href = canonical;
+
+    // JSON-LD Article structured data
+    const existing = document.getElementById("jsonld-article");
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.id = "jsonld-article";
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: post.title[lang],
+      description: post.excerpt[lang],
+      image: post.cover,
+      datePublished: post.date,
+      dateModified: post.date,
+      author: {
+        "@type": "Organization",
+        name: post.author.name[lang],
+        url: "https://dira.co.id",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "PT. Dira Baraka Mulia",
+        logo: { "@type": "ImageObject", url: "https://dira.co.id/logo.jpg" },
+      },
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+      keywords: post.tags.join(", "),
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      const s = document.getElementById("jsonld-article");
+      if (s) s.remove();
+    };
   }, [post, lang]);
 
   const toc = useMemo(() => (post ? buildToc(post.body[lang]) : []), [post, lang]);
@@ -86,7 +142,7 @@ export default function BlogPost() {
   // Split body for mid-article ad
   const mid = Math.floor(post.body[lang].length / 2);
 
-  const canonicalUrl = typeof window !== "undefined" ? window.location.href : "";
+  const canonicalUrl = `https://dira.co.id/blog/${post.slug}`;
 
   return (
     <>
@@ -133,6 +189,11 @@ export default function BlogPost() {
             </div>
           </div>
         </section>
+
+        {/* Leaderboard Ad bawah hero */}
+        <div className="max-w-[1280px] mx-auto px-5 lg:px-10 pt-4">
+          <AdSlot slot="post-top-leaderboard" format="leaderboard" label="Post Leaderboard 728×90" desktopOnly />
+        </div>
 
         {/* Cover */}
         <section className="pb-10">
@@ -199,7 +260,13 @@ export default function BlogPost() {
             <AuthorCard author={post.author} />
 
             {/* Below article Ad */}
-            <AdSlot slot="post-below-article" format="below-article" label="Below Article 250×auto" />
+            <AdSlot slot="post-below-article" format="below-article" label="Below Article 728×90" />
+
+            {/* Mobile-only banner */}
+            <AdSlot slot="post-mobile-banner" format="mobile-banner" label="Mobile Banner 320×100" mobileOnly />
+
+            {/* Comments Section */}
+            <CommentsSection lang={lang} labels={t.blog} post={post} />
           </div>
         </article>
 
@@ -209,6 +276,7 @@ export default function BlogPost() {
             <h3 className="font-serif text-teal-deep text-3xl font-bold mb-10">
               {t.blog.relatedTitle}
             </h3>
+            <AdSlot slot="post-related-feed" format="related-feed" label="Related Posts In-Feed" className="mb-8" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {related.map((r) => (
                 <Link
@@ -242,3 +310,52 @@ export default function BlogPost() {
     </>
   );
 }
+
+const CommentsSection = ({ lang, labels, post }) => {
+  const waText = encodeURIComponent(
+    lang === "id"
+      ? `Halo, saya ingin berkomentar tentang artikel "${post.title[lang]}" di dira.co.id/blog/${post.slug}`
+      : `Hello, I'd like to comment on your article "${post.title[lang]}" at dira.co.id/blog/${post.slug}`
+  );
+
+  return (
+    <div className="mt-14 pt-10 border-t border-teal/10" data-testid="comments-section">
+      <h3 className="font-serif text-teal-deep text-2xl font-bold mb-2">
+        {labels.commentsTitle || (lang === "id" ? "Diskusi & Komentar" : "Discussion & Comments")}
+      </h3>
+      <p className="text-sm text-muted-foreground mb-8">
+        {lang === "id"
+          ? "Punya pertanyaan atau ingin berdiskusi tentang artikel ini? Hubungi tim kami langsung."
+          : "Have a question or want to discuss this article? Reach our team directly."}
+      </p>
+
+      <div className="bg-gradient-to-br from-teal-pale/60 to-white border border-teal/15 rounded-3xl p-8 text-center">
+        <div className="w-14 h-14 rounded-2xl bg-teal-deep/10 flex items-center justify-center mx-auto mb-4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7 text-teal-deep">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </div>
+        <h4 className="font-serif text-teal-deep text-lg font-bold mb-2">
+          {lang === "id" ? "Kirim Komentar via WhatsApp" : "Send Comment via WhatsApp"}
+        </h4>
+        <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6 leading-relaxed">
+          {lang === "id"
+            ? "Kami membaca dan merespons setiap pesan. Tim redaksi kami siap menjawab pertanyaan spesifik tentang artikel ini."
+            : "We read and respond to every message. Our editorial team is ready to answer specific questions about this article."}
+        </p>
+        <a
+          href={`https://wa.me/6281264882678?text=${waText}`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-[#25d366] hover:bg-[#1ebe5d] text-white font-bold text-sm transition-colors shadow-lg shadow-green-500/20"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.07 1.502 5.785L0 24l6.383-1.476A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 0 1-5.002-1.373l-.358-.214-3.79.876.907-3.688-.234-.38A9.79 9.79 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+          </svg>
+          {lang === "id" ? "Kirim via WhatsApp" : "Send via WhatsApp"}
+        </a>
+      </div>
+    </div>
+  );
+};

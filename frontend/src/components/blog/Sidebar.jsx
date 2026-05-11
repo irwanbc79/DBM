@@ -91,8 +91,13 @@ export default function BlogSidebar() {
         </ul>
       </SidebarCard>
 
-      {/* Sidebar Ad */}
+      {/* Sidebar Ad — MPU 300×250 */}
       <AdSlot slot="blog-sidebar-mpu" format="mpu" label="Sidebar MPU 300×250" />
+
+      {/* Sidebar Sticky — 300×600 */}
+      <div className="lg:sticky lg:top-28">
+        <AdSlot slot="blog-sidebar-sticky" format="sticky-sidebar" label="Sidebar Sticky 300×600" />
+      </div>
 
       {/* Categories */}
       <SidebarCard icon={Hash} title={t.blog.categories}>
