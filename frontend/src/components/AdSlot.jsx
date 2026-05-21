@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 /**
  * AdSense-ready ad slot component — Publisher: ca-pub-5616961797801657
@@ -46,13 +47,17 @@ export default function AdSlot({ slot, format = "in-article", className = "", la
   const client = process.env.REACT_APP_ADSENSE_CLIENT;
   const slotId = SLOT_IDS[slot] || slot;
   const ref = useRef(null);
+  const { pathname } = useLocation();
+
+  // Hanya tampilkan iklan real di halaman blog — mencegah "ads tanpa konten" di home/service pages
+  const isBlogPage = pathname.startsWith("/blog");
 
   useEffect(() => {
-    if (!client || !slotId) return;
+    if (!client || !slotId || !isBlogPage) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (_) {}
-  }, [client, slotId]);
+  }, [client, slotId, isBlogPage]);
 
   const visibilityClass = mobileOnly
     ? "block lg:hidden"
@@ -60,7 +65,7 @@ export default function AdSlot({ slot, format = "in-article", className = "", la
     ? "hidden lg:block"
     : "";
 
-  if (client && slotId) {
+  if (client && slotId && isBlogPage) {
     return (
       <div className={`my-8 ${visibilityClass} ${className}`} data-testid={`adslot-${slot}`}>
         <div className="text-center text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 mb-1.5">

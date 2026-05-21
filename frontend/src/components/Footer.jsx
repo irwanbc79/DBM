@@ -88,7 +88,10 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <span>© {new Date().getFullYear()} PT. Dira Baraka Mulia. {t.footer.rights}</span>
-          <span>{t.footer.builtWith}</span>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy-policy" className="hover:text-gold-light transition-colors">Privacy Policy</Link>
+            <span>{t.footer.builtWith}</span>
+          </div>
         </div>
       </div>
     </footer>

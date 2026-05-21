@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://dira.co.id/privacy-policy</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://dira.co.id/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -75,6 +81,72 @@
   <url>
     <loc>https://dira.co.id/blog/konsultasi-strategi-ekspor-umkm</loc>
     <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/incoterms-2020-panduan-lengkap-eksportir-importir</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/letter-of-credit-lc-panduan-eksportir-pemula</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/asuransi-kargo-marine-cargo-insurance-panduan</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/certificate-of-origin-coo-jenis-fungsi-cara-dapat</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/ekspor-produk-umkm-makanan-ke-malaysia</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/devisa-hasil-ekspor-dhe-regulasi-2025</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/freight-forwarding-vs-ppjk-perbedaan-dan-fungsi</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/pupuk-impor-indonesia-panduan-lengkap</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/cara-menghitung-bea-masuk-ppn-pph22-impor</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/ekspor-karet-alam-indonesia-peluang-dan-tantangan</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dira.co.id/blog/perdagangan-kakao-coklat-indonesia-panduan-ekspor</loc>
+    <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
