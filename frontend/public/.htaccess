@@ -1,0 +1,13 @@
+Options -MultiViews
+RewriteEngine On
+
+# Serve static files directly — ads.txt, robots.txt, sitemap.xml, images, etc.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Serve existing directories directly
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback: send everything else to React SPA
+RewriteRule ^ /index.html [L]

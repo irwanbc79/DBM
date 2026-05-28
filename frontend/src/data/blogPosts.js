@@ -17,7 +17,7 @@ export const blogPosts = [
     date: "2025-11-12",
     readTime: 7,
     views: 2843,
-    category: { en: "Undername", id: "Undername" },
+    category: { en: "Undername & PPJK", id: "Undername & PPJK" },
     tags: ["undername", "api-u", "import", "regulation", "beginner"],
     author: editor,
     title: {
@@ -51,7 +51,7 @@ export const blogPosts = [
     date: "2025-10-28",
     readTime: 6,
     views: 3921,
-    category: { en: "Export", id: "Ekspor" },
+    category: { en: "Export Commodities", id: "Komoditas Ekspor" },
     tags: ["export", "coffee", "commodities", "markets", "specialty"],
     author: editor,
     title: {
@@ -89,7 +89,7 @@ export const blogPosts = [
     date: "2025-10-15",
     readTime: 8,
     views: 1784,
-    category: { en: "Customs", id: "Kepabeanan" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["customs", "pib", "import", "insw", "documents"],
     author: editor,
     title: {
@@ -129,7 +129,7 @@ export const blogPosts = [
     date: "2025-09-30",
     readTime: 5,
     views: 1203,
-    category: { en: "Logistics", id: "Logistik" },
+    category: { en: "Int'l Trade", id: "Perdagangan Int'l" },
     tags: ["logistics", "belawan", "ports", "sumatra", "routes"],
     author: editor,
     title: {
@@ -165,7 +165,7 @@ export const blogPosts = [
     date: "2025-09-08",
     readTime: 6,
     views: 2156,
-    category: { en: "Regulation", id: "Regulasi" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["regulation", "eudr", "palm-oil", "sustainability", "eu"],
     author: editor,
     title: {
@@ -203,7 +203,7 @@ export const blogPosts = [
     date: "2025-12-05",
     readTime: 9,
     views: 3512,
-    category: { en: "Customs", id: "Kepabeanan" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["hs-code", "customs", "classification", "import", "duty"],
     author: editor,
     title: {
@@ -241,7 +241,7 @@ export const blogPosts = [
     date: "2025-11-28",
     readTime: 7,
     views: 2987,
-    category: { en: "Export", id: "Ekspor" },
+    category: { en: "Export Commodities", id: "Komoditas Ekspor" },
     tags: ["export", "palm-oil", "cpo", "commodities", "sumatra"],
     author: editor,
     title: {
@@ -277,7 +277,7 @@ export const blogPosts = [
     date: "2025-11-10",
     readTime: 6,
     views: 2234,
-    category: { en: "Import", id: "Impor" },
+    category: { en: "Undername & PPJK", id: "Undername & PPJK" },
     tags: ["import", "bc20", "customs", "beginner", "documents"],
     author: editor,
     title: {
@@ -313,7 +313,7 @@ export const blogPosts = [
     date: "2025-10-20",
     readTime: 5,
     views: 1876,
-    category: { en: "General Trading", id: "Perdagangan Umum" },
+    category: { en: "Int'l Trade", id: "Perdagangan Int'l" },
     tags: ["trading", "commodities", "agriculture", "wholesale", "fertilizer"],
     author: editor,
     title: {
@@ -349,7 +349,7 @@ export const blogPosts = [
     date: "2025-10-01",
     readTime: 6,
     views: 1543,
-    category: { en: "Consulting", id: "Konsultasi" },
+    category: { en: "Trading Tips", id: "Tips Bisnis" },
     tags: ["consulting", "strategy", "umkm", "export", "beginner"],
     author: editor,
     title: {
@@ -387,7 +387,7 @@ export const blogPosts = [
     date: "2025-08-22",
     readTime: 5,
     views: 1645,
-    category: { en: "Strategy", id: "Strategi" },
+    category: { en: "Trading Tips", id: "Tips Bisnis" },
     tags: ["strategy", "partnership", "diligence", "business"],
     author: editor,
     title: {
@@ -429,7 +429,7 @@ export const blogPosts = [
     date: "2025-12-20",
     readTime: 10,
     views: 4231,
-    category: { en: "Customs", id: "Kepabeanan" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["incoterms", "export", "import", "shipping", "fob", "cif"],
     author: editor,
     title: {
@@ -473,7 +473,7 @@ export const blogPosts = [
     date: "2025-12-10",
     readTime: 9,
     views: 3187,
-    category: { en: "Strategy", id: "Strategi" },
+    category: { en: "Int'l Trade", id: "Perdagangan Int'l" },
     tags: ["letter-of-credit", "lc", "payment", "export", "banking"],
     author: editor,
     title: {
@@ -515,7 +515,7 @@ export const blogPosts = [
     date: "2025-11-20",
     readTime: 7,
     views: 1932,
-    category: { en: "Logistics", id: "Logistik" },
+    category: { en: "Int'l Trade", id: "Perdagangan Int'l" },
     tags: ["insurance", "marine", "cargo", "logistics", "risk"],
     author: editor,
     title: {
@@ -557,7 +557,7 @@ export const blogPosts = [
     date: "2025-11-05",
     readTime: 7,
     views: 2654,
-    category: { en: "Customs", id: "Kepabeanan" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["coo", "certificate-of-origin", "export", "preferential", "asean"],
     author: editor,
     title: {
@@ -599,7 +599,7 @@ export const blogPosts = [
     date: "2025-10-25",
     readTime: 8,
     views: 2876,
-    category: { en: "Export", id: "Ekspor" },
+    category: { en: "Trading Tips", id: "Tips Bisnis" },
     tags: ["export", "umkm", "food", "malaysia", "halal"],
     author: editor,
     title: {
@@ -641,7 +641,7 @@ export const blogPosts = [
     date: "2025-10-12",
     readTime: 6,
     views: 2341,
-    category: { en: "Regulation", id: "Regulasi" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["regulation", "dhe", "foreign-exchange", "export", "bank-indonesia"],
     author: editor,
     title: {
@@ -683,7 +683,7 @@ export const blogPosts = [
     date: "2025-09-25",
     readTime: 6,
     views: 1987,
-    category: { en: "Logistics", id: "Logistik" },
+    category: { en: "Undername & PPJK", id: "Undername & PPJK" },
     tags: ["freight-forwarding", "ppjk", "logistics", "customs", "shipping"],
     author: editor,
     title: {
@@ -725,7 +725,7 @@ export const blogPosts = [
     date: "2025-09-15",
     readTime: 7,
     views: 1765,
-    category: { en: "Import", id: "Impor" },
+    category: { en: "Export Commodities", id: "Komoditas Ekspor" },
     tags: ["import", "fertilizer", "agriculture", "regulation", "wholesale"],
     author: editor,
     title: {
@@ -767,7 +767,7 @@ export const blogPosts = [
     date: "2025-09-05",
     readTime: 7,
     views: 3892,
-    category: { en: "Customs", id: "Kepabeanan" },
+    category: { en: "Import Regulations", id: "Regulasi Impor" },
     tags: ["customs", "import-duty", "tax", "ppn", "calculation"],
     author: editor,
     title: {
@@ -811,7 +811,7 @@ export const blogPosts = [
     date: "2025-08-28",
     readTime: 6,
     views: 1543,
-    category: { en: "Export", id: "Ekspor" },
+    category: { en: "Export Commodities", id: "Komoditas Ekspor" },
     tags: ["export", "rubber", "commodities", "sumatra", "markets"],
     author: editor,
     title: {
@@ -853,7 +853,7 @@ export const blogPosts = [
     date: "2025-08-10",
     readTime: 7,
     views: 1876,
-    category: { en: "Export", id: "Ekspor" },
+    category: { en: "Export Commodities", id: "Komoditas Ekspor" },
     tags: ["export", "cocoa", "chocolate", "sulawesi", "commodities"],
     author: editor,
     title: {
