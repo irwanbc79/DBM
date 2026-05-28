@@ -216,3 +216,18 @@ body {
   100% { transform: translateX(-50%); }
 }
 .marquee-track { animation: marquee 30s linear infinite; }
+
+/* Hide scrollbar for pillar nav strip */
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* Blog article — lead (first) paragraph */
+.blog-lead {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: rgba(8, 61, 51, 0.78);
+  font-weight: 500;
+  border-left: 4px solid #c9a227;
+  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+}

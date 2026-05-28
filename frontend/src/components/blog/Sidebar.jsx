@@ -1,4 +1,16 @@
-import { Calendar, Flame, Hash, Search, TrendingUp } from "lucide-react";
+import { Calendar, Flame, Hash, Search, TrendingUp, FileCheck2, Package, Globe, ShieldCheck, Lightbulb } from "lucide-react";
+
+const CAT_ICON = {
+  "Undername & PPJK": FileCheck2,
+  "Komoditas Ekspor": Package,
+  "Export Commodities": Package,
+  "Perdagangan Int'l": Globe,
+  "Int'l Trade": Globe,
+  "Regulasi Impor": ShieldCheck,
+  "Import Regulations": ShieldCheck,
+  "Tips Bisnis": Lightbulb,
+  "Trading Tips": Lightbulb,
+};
 import { Link, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { useLang } from "../../contexts/LanguageContext";
@@ -104,6 +116,7 @@ export default function BlogSidebar() {
         <ul className="space-y-1" data-testid="categories-list">
           {categories.map((c) => {
             const active = activeCat === c.name;
+            const Icon = CAT_ICON[c.name];
             return (
               <li key={c.name}>
                 <button
@@ -115,9 +128,12 @@ export default function BlogSidebar() {
                   }`}
                   data-testid={`category-filter-${c.name}`}
                 >
-                  <span>{c.name}</span>
+                  <span className="flex items-center gap-2">
+                    {Icon && <Icon className="w-3.5 h-3.5 opacity-60 flex-shrink-0" />}
+                    {c.name}
+                  </span>
                   <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full ${
+                    className={`text-[10px] px-2 py-0.5 rounded-full flex-shrink-0 ${
                       active ? "bg-gold/20" : "bg-teal-pale"
                     }`}
                   >
