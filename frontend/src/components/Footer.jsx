@@ -50,7 +50,7 @@ export default function Footer() {
               <li><a href="#commodities" className="link-underline text-white/75 hover:text-gold-light">{t.nav.commodities}</a></li>
               <li><a href="#portfolio" className="link-underline text-white/75 hover:text-gold-light">{t.nav.portfolio}</a></li>
               <li><a href="#legality" className="link-underline text-white/75 hover:text-gold-light">{t.nav.legality}</a></li>
-              <li><Link to="/blog" className="link-underline text-white/75 hover:text-gold-light">{t.nav.blog}</Link></li>
+              <li><a href="/blog" className="link-underline text-white/75 hover:text-gold-light">{t.nav.blog}</a></li>
             </ul>
           </div>
 
