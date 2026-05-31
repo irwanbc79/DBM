@@ -102,8 +102,8 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Link
-            to="/blog"
+          <a
+            href="/blog"
             className={`px-4 py-2 rounded-full text-[13px] font-semibold transition-colors ${
               loc.pathname.startsWith("/blog")
                 ? "bg-teal text-white"
@@ -114,7 +114,7 @@ export default function Navbar() {
             data-testid="nav-blog"
           >
             {t.nav.blog}
-          </Link>
+          </a>
           <a
             href="#contact"
             onClick={handleAnchor("contact")}
@@ -207,9 +207,9 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Link to="/blog" className="py-3 px-4 rounded-lg text-teal-deep font-semibold hover:bg-teal-pale text-sm">
+          <a href="/blog" className="py-3 px-4 rounded-lg text-teal-deep font-semibold hover:bg-teal-pale text-sm">
             {t.nav.blog}
-          </Link>
+          </a>
           <a href="#contact" onClick={handleAnchor("contact")} className="py-3 px-4 rounded-lg text-teal-deep font-semibold hover:bg-teal-pale text-sm">
             {t.nav.contact}
           </a>
