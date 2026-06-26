@@ -57,7 +57,10 @@ export default function Footer() {
 
       <div className="dbm-container mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-xs opacity-60">
         <div>© {new Date().getFullYear()} {COMPANY.name}. {t('footer.rights')}</div>
-        <div className="font-mono">NIB {COMPANY.nib} &middot; NPWP {COMPANY.npwp}</div>
+        <div className="flex flex-wrap gap-4 font-mono">
+          <span>NIB {COMPANY.nib} &middot; NPWP {COMPANY.npwp}</span>
+          <span>Powered by: <a href="https://morabangun.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">morabangun.com</a></span>
+        </div>
       </div>
     </footer>
   );

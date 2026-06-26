@@ -90,7 +90,7 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} PT. Dira Baraka Mulia. {t.footer.rights}</span>
           <div className="flex items-center gap-4">
             <Link to="/privacy-policy" className="hover:text-gold-light transition-colors">Privacy Policy</Link>
-            <span>{t.footer.builtWith}</span>
+            <span>Powered by: <a href="https://morabangun.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">morabangun.com</a></span>
           </div>
         </div>
       </div>
